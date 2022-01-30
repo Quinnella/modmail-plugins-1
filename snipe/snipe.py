@@ -45,7 +45,7 @@ class Snipe(C.Cog):
 	@C.command(aliases=['esnipe'])
 	@C.cooldown(1,10,C.BucketType.member)
 	async def editsnipe(self,ctx):
-                """snipes an edited message."""
+		"""snipes an edited message."""
 		C=ctx
 		if B[F]!=C.guild or B[G]!=C.channel or B[D]==A:J=I.Embed(color=16764365,description=N);K=await C.send(embed=J);return await K.delete(delay=4)
 		H=I.Embed(description=M(B[D]),colour=16764365);H.set_footer(text=f"sniped by {C.author.name}#{C.author.discriminator}",icon_url=C.author.avatar_url);H.set_author(name=O.format(B[E]),icon_url=B[E].avatar_url);await C.send(embed=H)
