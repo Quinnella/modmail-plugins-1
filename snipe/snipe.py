@@ -19,7 +19,6 @@ class Snipe(C.Cog):
 	def __init__(A,bot):A.bot=bot
 	@C.Cog.listener()
 	async def on_message_delete(self,message):
-		"""snipe a deleted message."""
 		B=message
 		if B.author.bot:return
 		global snipe;snipe[J]=B.id;snipe[E]=B.author;snipe[D]=B.content;snipe[F]=B.guild;snipe[G]=B.channel
@@ -35,6 +34,7 @@ class Snipe(C.Cog):
 	@C.command(aliases=['imagesnipe'])
 	@C.cooldown(1,10,C.BucketType.member)
 	async def snipe(self,ctx):
+		"""snipe a deleted message."""
 		B=ctx;global snipe
 		if snipe[F]!=B.guild or snipe[G]!=B.channel or snipe[D]==A:K=I.Embed(color=16764365,description=N);P=await B.send(embed=K);return await P.delete(delay=4)
 		C=I.Embed(description=M(snipe[D]),colour=16764365);C.set_author(name=O.format(snipe[E]),icon_url=snipe[E].avatar_url);C.set_footer(text=f"sniped by {B.author.name}#{B.author.discriminator}",icon_url=B.author.avatar_url)
